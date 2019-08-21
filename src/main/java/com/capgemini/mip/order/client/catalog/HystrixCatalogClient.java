@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-@Profile("cloud")
+@Profile("hystrix")
 public class HystrixCatalogClient implements CatalogClient {
 
   @Autowired

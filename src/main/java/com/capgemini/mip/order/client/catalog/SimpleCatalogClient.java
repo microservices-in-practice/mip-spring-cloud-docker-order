@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-@Profile("dev")
+@Profile("!hystrix")
 public class SimpleCatalogClient implements CatalogClient {
 
   RestTemplate restTemplate = new RestTemplate();

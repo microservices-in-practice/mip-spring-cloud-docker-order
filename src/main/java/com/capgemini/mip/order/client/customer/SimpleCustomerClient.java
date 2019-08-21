@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
-@Profile("dev")
+@Profile("!hystrix")
 public class SimpleCustomerClient implements CustomerClient {
 
   RestTemplate restTemplate = new RestTemplate();
