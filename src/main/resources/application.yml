@@ -1,12 +1,11 @@
+server:
+  port: 8090
 spring:
   application:
     name: order
   profiles:
     active: dev
-order:
-  discount: 0.0
-  customerServiceUrl: http://localhost:8092/customers/
-  catalogServiceUrl: http://localhost:8091/items/
+
 ---
 
 spring:
@@ -28,17 +27,15 @@ spring:
       ddl-auto: validate
   flyway:
     locations: classpath:db/migration/{vendor},classpath:db/migration/common
-server:
-  port: 8090
-
----
-
-spring:
-  profiles: prod
-  profiles.include: postgres
-
-
----
-
-spring:
-  profiles: postgres
+order:
+  discount: 0.0
+  customerServiceUrl: http://localhost:8092/customers/
+  catalogServiceUrl: http://localhost:8091/items/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
