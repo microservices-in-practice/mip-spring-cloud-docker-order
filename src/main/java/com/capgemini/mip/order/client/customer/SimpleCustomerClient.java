@@ -14,7 +14,8 @@ import java.util.List;
 @Profile("!hystrix")
 public class SimpleCustomerClient implements CustomerClient {
 
-  RestTemplate restTemplate = new RestTemplate();
+  @Autowired
+  RestTemplate restTemplate;
 
   @Autowired
   private ConfigProperties properties;

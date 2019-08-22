@@ -1,6 +1,7 @@
 package com.capgemini.mip.order.config;
 
 import org.dozer.DozerBeanMapper;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -16,7 +17,14 @@ public class ApplicationConfig {
 
   @Bean
   @Profile("cloud")
+  @LoadBalanced
   public RestTemplate restTemplate(){
+    return new RestTemplate();
+  }
+
+  @Bean
+  @Profile("!cloud")
+  public RestTemplate localRestTemplate(){
     return new RestTemplate();
   }
 

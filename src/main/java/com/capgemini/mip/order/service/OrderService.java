@@ -98,7 +98,7 @@ public class OrderService {
 
   private String generateOrderId() {
     return DateTimeFormatter.ofPattern("yyyyMMddHHmm")
-      .format(LocalDateTime.now()) + "/" + RandomStringUtils.randomAlphanumeric(5);
+      .format(LocalDateTime.now()) + RandomStringUtils.randomNumeric(5);
   }
 
 }
